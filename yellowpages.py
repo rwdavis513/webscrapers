@@ -25,7 +25,8 @@ def parse_page_info(soup, items_to_find):
         data = data.append(business_info, ignore_index=True)
         
     return data
-    
+
+
 def extract_section_info(info, items_to_find, verbose=False):
     results = {}
     for item, header in items_to_find.items():
@@ -42,7 +43,8 @@ def extract_section_info(info, items_to_find, verbose=False):
                 print("Warning: " + item + " was not found.")
             
     return results
-    
+
+
 def scrape_page(city, state, search_item='conference+management'):
     base_url = 'http://www.yellowpages.com/search?search_terms='
     where = 'geo_location_terms=' + city + '+' + state
@@ -64,6 +66,7 @@ def scrape_page(city, state, search_item='conference+management'):
     page_data = parse_page_info(soup, items_to_find)
     page_data.to_csv(state + '_' + city + '.csv')
     return page_data
+
 
 def load_cities():
     city_list = pd.read_csv('census_population_short.csv')
