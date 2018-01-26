@@ -1,0 +1,98 @@
+click,https://pypi.python.org/pypi/click/6.7,
+botocore,https://pypi.python.org/pypi/botocore/1.7.16,Apache License 2.0
+certifi,https://pypi.python.org/pypi/certifi/2017.7.27.1,MPL-2.0
+cffi,https://pypi.python.org/pypi/cffi/1.11.2,MIT
+cookies,https://pypi.python.org/pypi/cookies/2.2.1,License :: OSI Approved :: MIT License
+contexttimer,https://pypi.python.org/pypi/contexttimer/0.3.3,time,timer
+chardet,https://pypi.python.org/pypi/chardet/3.0.4,encoding,i18n,xml
+decorator,https://pypi.python.org/pypi/decorator/4.1.2,decorators generic utility
+entrypoints,https://pypi.python.org/pypi/entrypoints/0.2.3,
+Flask-HTTPAuth,https://pypi.python.org/pypi/Flask-HTTPAuth/3.2.3,
+cryptography,https://pypi.python.org/pypi/cryptography/2.1.4,BSD or Apache License, Version 2.0
+coverage,https://pypi.python.org/pypi/coverage/4.4.1,code coverage testing
+colorama,https://pypi.python.org/pypi/colorama/0.3.7,color colour terminal text ansi windows crossplatform xplatform
+Flask-SQLAlchemy,https://pypi.python.org/pypi/Flask-SQLAlchemy/2.2,
+gunicorn,https://pypi.python.org/pypi/gunicorn/19.7.1,MIT
+Flask,https://pypi.python.org/pypi/Flask/0.12.2,BSD
+docutils,https://pypi.python.org/pypi/docutils/0.14,
+honeybadger,https://pypi.python.org/pypi/honeybadger/0.0.6,MIT
+Cycler,https://pypi.python.org/pypi/Cycler/0.10.0,cycle kwargs
+ipykernel,https://pypi.python.org/pypi/ipykernel/4.6.1,Interactive,Interpreter,Shell,Web
+itsdangerous,https://pypi.python.org/pypi/itsdangerous/0.24,
+ipywidgets,https://pypi.python.org/pypi/ipywidgets/6.0.0,Interactive,Interpreter,Shell,Web
+Jinja2,https://pypi.python.org/pypi/Jinja2/2.9.6,BSD
+idna,https://pypi.python.org/pypi/idna/2.5,BSD-like
+jupyter,https://pypi.python.org/pypi/jupyter/1.0.0,BSD
+ipython,https://pypi.python.org/pypi/ipython/6.1.0,Interactive,Interpreter,Shell,Embedding
+jedi,https://pypi.python.org/pypi/jedi/0.10.2,python completion refactoring vim
+html5lib,https://pypi.python.org/pypi/html5lib/0.999999999,MIT License
+jsonschema,https://pypi.python.org/pypi/jsonschema/2.6.0,MIT
+ipython_genutils,https://pypi.python.org/pypi/ipython_genutils/0.2.0,Interactive,Interpreter,Shell,Web
+jmespath,https://pypi.python.org/pypi/jmespath/0.9.3,MIT
+matplotlib,https://pypi.python.org/pypi/matplotlib/2.0.2,
+nbconvert,https://pypi.python.org/pypi/nbconvert/5.2.1,Interactive,Interpreter,Shell,Web
+jupyter_client,https://pypi.python.org/pypi/jupyter_client/5.1.0,Interactive,Interpreter,Shell,Web
+lazy-object-proxy,https://pypi.python.org/pypi/lazy-object-proxy/1.3.1,BSD
+isort,https://pypi.python.org/pypi/isort/4.2.15,Refactor,Python,Python2,Python3,Refactoring,Imports,Sort,Clean
+MarkupSafe,https://pypi.python.org/pypi/MarkupSafe/1.0,BSD
+mccabe,https://pypi.python.org/pypi/mccabe/0.6.1,flake8 mccabe
+nbformat,https://pypi.python.org/pypi/nbformat/4.3.0,Interactive,Interpreter,Shell,Web
+nltk,https://pypi.python.org/pypi/nltk/3.2.5,NLP,CL,natural language processing,computational linguistics,parsing,tagging,tokenizing,syntax,linguistics,language,natural language,text analytics
+jupyter_console,https://pypi.python.org/pypi/jupyter_console/5.1.0,Interactive,Interpreter,Shell,Web
+jupyter_core,https://pypi.python.org/pypi/jupyter_core/4.3.0,BSD
+notebook,https://pypi.python.org/pypi/notebook/5.0.0,Interactive,Interpreter,Shell,Web
+pexpect,https://pypi.python.org/pypi/pexpect/4.2.1,ISC license
+numpy,https://pypi.python.org/pypi/numpy/1.13.1,
+passlib,https://pypi.python.org/pypi/passlib/1.7.1,
+mistune,https://pypi.python.org/pypi/mistune/0.7.4,BSD
+pickleshare,https://pypi.python.org/pypi/pickleshare/0.7.4,database persistence pickle ipc shelve
+pandas,https://pypi.python.org/pypi/pandas/0.20.3,BSD
+ptyprocess,https://pypi.python.org/pypi/ptyprocess/0.5.2,
+pusher,https://pypi.python.org/pypi/pusher/1.7.2,pusher rest realtime websockets service
+pyasn1,https://pypi.python.org/pypi/pyasn1/0.3.3,BSD
+pycparser,https://pypi.python.org/pypi/pycparser/2.18,BSD
+ndg-httpsclient,https://pypi.python.org/pypi/ndg-httpsclient/0.4.3,
+psycopg2,https://pypi.python.org/pypi/psycopg2/2.7.3,
+py,https://pypi.python.org/pypi/py/1.4.34,
+pandocfilters,https://pypi.python.org/pypi/pandocfilters/1.4.1,pandoc
+pylint,https://pypi.python.org/pypi/pylint/1.7.2,GPL
+Pygments,https://pypi.python.org/pypi/Pygments/2.2.0,syntax highlighting
+python-dateutil,https://pypi.python.org/pypi/python-dateutil/2.6.1,Simplified BSD
+pytest,https://pypi.python.org/pypi/pytest/3.2.0,
+pyOpenSSL,https://pypi.python.org/pypi/pyOpenSSL/17.5.0,
+pyparsing,https://pypi.python.org/pypi/pyparsing/2.2.0,
+pytest-pylint,https://pypi.python.org/pypi/pytest-pylint/0.7.1,MIT
+pytimeparse,https://pypi.python.org/pypi/pytimeparse/1.1.7,time parsing parser
+prompt_toolkit,https://pypi.python.org/pypi/prompt_toolkit/1.0.15,Operating System :: OS Independent
+pyzmq,https://pypi.python.org/pypi/pyzmq/16.0.2,LGPL+BSD
+PyYAML,https://pypi.python.org/pypi/PyYAML/3.12,
+pytest-cov,https://pypi.python.org/pypi/pytest-cov/2.5.1,cover,coverage,pytest,py.test,distributed,parallel
+rq,https://pypi.python.org/pypi/rq/0.9.1,BSD
+rsa,https://pypi.python.org/pypi/rsa/3.4.2,ASL 2
+qtconsole,https://pypi.python.org/pypi/qtconsole/4.3.0,Interactive,Interpreter,Shell
+s3transfer,https://pypi.python.org/pypi/s3transfer/0.1.10,Apache License 2.0
+pytz,https://pypi.python.org/pypi/pytz/2017.2,
+six,https://pypi.python.org/pypi/six/1.10.0,
+simplegeneric,https://pypi.python.org/pypi/simplegeneric/0.8.1,ZPL 2.1
+responses,https://pypi.python.org/pypi/responses/0.8.1,Apache 2.0
+spark-sklearn,https://pypi.python.org/pypi/spark-sklearn/0.2.2,spark
+scipy,https://pypi.python.org/pypi/scipy/0.19.1,
+SQLAlchemy,https://pypi.python.org/pypi/SQLAlchemy/1.1.12,MIT License
+timeitd,https://pypi.python.org/pypi/timeitd/1.0,MIT
+terminado,https://pypi.python.org/pypi/terminado/0.6,Programming Language :: Python :: 3
+testpath,https://pypi.python.org/pypi/testpath/0.3.1,
+scikit-learn,https://pypi.python.org/pypi/scikit-learn/0.18.2,
+requests,https://pypi.python.org/pypi/requests/2.18.3,Apache 2.0
+sklearn,https://pypi.python.org/pypi/sklearn/0.0,all
+psutil,https://pypi.python.org/pypi/psutil/5.4.3,ps,top,kill,free,lsof,netstat,nice,tty,ionice,uptime,taskmgr,process,df,iotop,iostat,ifconfig,taskset,who,pidof,pmap,smem,pstree,monitoring,ulimit,prlimit,smem
+traitlets,https://pypi.python.org/pypi/traitlets/4.3.2,Interactive,Interpreter,Shell,Web
+webencodings,https://pypi.python.org/pypi/webencodings/0.5.1,
+redis,https://pypi.python.org/pypi/redis/2.10.6,Redis,key-value store
+Werkzeug,https://pypi.python.org/pypi/Werkzeug/0.12.2,BSD
+wrapt,https://pypi.python.org/pypi/wrapt/1.10.11,
+wcwidth,https://pypi.python.org/pypi/wcwidth/0.1.7,terminal,emulator,wcwidth,wcswidth,cjk,combining,xterm,console
+xlrd,https://pypi.python.org/pypi/xlrd/1.0.0,xls,excel,spreadsheet,workbook
+tornado,https://pypi.python.org/pypi/tornado/4.5.1,http://www.apache.org/licenses/LICENSE-2.0
+widgetsnbextension,https://pypi.python.org/pypi/widgetsnbextension/2.0.0,Interactive,Interpreter,Shell,Web
+tzlocal,https://pypi.python.org/pypi/tzlocal/1.4,timezone pytz
+urllib3,https://pypi.python.org/pypi/urllib3/1.22,urllib httplib threadsafe filepost http https ssl pooling

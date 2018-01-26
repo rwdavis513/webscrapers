@@ -1,6 +1,21 @@
 import scrapy
 
-outfile =  open('pypi_scraping_results.txt', 'w')
+outfile =  open('pypi_scraping_results.csv', 'w')
+
+def try_extract(response, xpath):
+    """
+    Attempt extracting data from the xpath and if it errors out then return an empty string
+    :param response:
+    :param xpath:
+    :return:
+    """
+    try:
+        license = response.xpath(xpath).extract()[0]
+    except Exception as e:
+        print(e)
+        license = ""
+    return license
+
 
 class LicenseSpider(scrapy.Spider):
     name = "license"
@@ -112,12 +127,14 @@ class LicenseSpider(scrapy.Spider):
     def parse(self, response):
         page = response.url.split("/")[-2]
         #filename = 'quotes-%s.html' % page
-        try:
-            license = response.xpath('//*[@id="content"]/div[3]/ul/li[3]/span/text()').extract()[0]
-        except Exception as e:
-            license = response.xpath('//*[@id="content"]/div[3]/ul/li[3]/ul/li[4]/a/text()').extract()[0]
-            print(e)
-            #license = ""
+
+        xpaths = ['//*[@id="content"]/div[3]/ul/li[3]/span/text()',
+                  '//*[@id="content"]/div[3]/ul/li[3]/ul/li[4]/a/text()'
+                  ]
+        #license = response.xpath().extract()[0]
+        license = try_extract(response, xpaths[0])
+        if license == "":
+            license = try_extract(response, xpaths[1])
         outstring = page + "," + response.url + "," + license + "\n"
         print(outstring)
         outfile.write(outstring)
