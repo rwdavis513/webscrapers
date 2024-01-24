@@ -27,14 +27,16 @@ def get_css(css_selector, block):
 # 'image': block.css('div.ng-img-container > img::attr(src)').get(),
 # 'description': block.css('p.description.ng-star-inserted::text').get(), 
 
+base_url = 'https://www.bizbuysell.com/utah-businesses-for-sale/'
+
 class BizBuySellSpider(scrapy.Spider):
     name = "BizBuySell"
-    start_urls = [
-        'https://www.bizbuysell.com/utah-businesses-for-sale/',  # Replace with a real news URL
-    ]
+    allowed_domains = ['bizbuysell.com']
+    
+    start_urls = ['{}{}/'.format(base_url, i) for i in range(3, 13) ]
 
     def parse(self, response):
-        for block in  response.css('#search-results > app-bfs-listing-container > div > app-listing-diamond'):
+        for block in response.css('#search-results > app-bfs-listing-container > div > app-listing-diamond'):
             yield {
                 'title': get_css('a::attr(title)', block), #block.css('a').attrib["title"],
                 'link': get_css('a::attr(href)', block), #block.css('a').attrib["href"],
