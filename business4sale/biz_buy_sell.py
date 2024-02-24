@@ -1,5 +1,31 @@
 import scrapy
+import json, os
+from constants import DATA_FOLDER
 
+from urllib.parse import urlsplit
+
+
+if not os.path.exists(DATA_FOLDER):
+    os.makedirs(DATA_FOLDER)
+
+def get_filename_from_url(url=None):
+    if url is None:
+        return None
+    urlpath = urlsplit(url).path
+    return urlpath.replace('/', '__')
+
+
+def test_get_filename_from_url():
+    url = "https://gabrieleromanato.name/python-how-to-extract-the-file-name-from-a-url"
+    filename = get_filename_from_url(url)
+    print(filename)
+
+
+def save_object_to_file(object_, url):
+    file_name = get_filename_from_url(url)
+    file_path = os.path.join(DATA_FOLDER, file_name + '.json')
+    json.dump(object_, open(file_path, 'w'))
+    return file_path
 
 def try_except(func):
     def wrapper(*args, **kwargs):
@@ -33,11 +59,14 @@ class BizBuySellSpider(scrapy.Spider):
     name = "BizBuySell"
     allowed_domains = ['bizbuysell.com']
     
-    start_urls = ['{}{}/'.format(base_url, i) for i in range(3, 13) ]
+    start_urls = ['{}{}/'.format(base_url, i) for i in range(1, 6) ]
 
     def parse(self, response):
+        
+        results = []
         for block in response.css('#search-results > app-bfs-listing-container > div > app-listing-diamond'):
-            yield {
+            
+            item = {
                 'title': get_css('a::attr(title)', block), #block.css('a').attrib["title"],
                 'link': get_css('a::attr(href)', block), #block.css('a').attrib["href"],
                 'asking_price': get_css('p.asking-price.ng-star-inserted::text', block), #block.xpath('//*[@id="2175771"]/div/div[2]/p[1]/text()
@@ -46,3 +75,10 @@ class BizBuySellSpider(scrapy.Spider):
                 'image': get_css('div.ng-img-container > img::attr(src)', block), #block.css('div.ng-img-container > img::attr(src)').get(),
                 'description': get_css( 'p.description.ng-star-inserted::text', block), #block.css('p.description.ng-star-inserted::text').get(), # .css('p.description.ng-star-inserted::text').get()
             }
+            results.append(item)
+            #yield item 
+        save_object_to_file(results, response.url)
+
+
+if __name__ == "__main__":
+    test_get_filename_from_url()
