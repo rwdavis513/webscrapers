@@ -44,6 +44,13 @@ def get_css(css_selector, block):
         return None
 
 
+def get_cashflow(block):
+    text = get_css('p.cash-flow.show-on-mobile.ng-star-inserted::text', block)
+    if isinstance(text, str):
+        return text.replace("Cash Flow: ", "")
+    else:
+        return text
+
 
 # 'title': block.css('a').attrib["title"],
 # 'link': block.css('a').attrib["href"],
@@ -70,7 +77,7 @@ class BizBuySellSpider(scrapy.Spider):
                 'title': get_css('a::attr(title)', block), #block.css('a').attrib["title"],
                 'link': get_css('a::attr(href)', block), #block.css('a').attrib["href"],
                 'asking_price': get_css('p.asking-price.ng-star-inserted::text', block), #block.xpath('//*[@id="2175771"]/div/div[2]/p[1]/text()
-                'cashflow': get_css('p.cash-flow.show-on-mobile.ng-star-inserted', block), #block.xpath('//*[@id="2175771"]/div/div[2]/p[2]/text()').get().replace("Cash Flow: ",""),
+                'cashflow': get_cashflow(block), #block.xpath('//*[@id="2175771"]/div/div[2]/p[2]/text()').get().replace("Cash Flow: ",""),
                 'location': get_css('p.location.ng-star-inserted::text', block), #block.css('p.location.ng-star-inserted::text').get().strip(),
                 'image': get_css('div.ng-img-container > img::attr(src)', block), #block.css('div.ng-img-container > img::attr(src)').get(),
                 'description': get_css( 'p.description.ng-star-inserted::text', block), #block.css('p.description.ng-star-inserted::text').get(), # .css('p.description.ng-star-inserted::text').get()
