@@ -60,13 +60,15 @@ def get_cashflow(block):
 # 'image': block.css('div.ng-img-container > img::attr(src)').get(),
 # 'description': block.css('p.description.ng-star-inserted::text').get(), 
 
-base_url = 'https://www.bizbuysell.com/utah-businesses-for-sale/'
+#base_url = 'https://www.bizbuysell.com/utah-businesses-for-sale/'
 
+#base_url = 'https://www.bizbuysell.com/utah-established-businesses-for-sale/' #?q=Y2Zmcm9tPTUwMDAw
+base_url = 'https://www.bizbuysell.com/utah-established-businesses-for-sale/'
 class BizBuySellSpider(scrapy.Spider):
     name = "BizBuySell"
     allowed_domains = ['bizbuysell.com']
     
-    start_urls = ['{}{}/'.format(base_url, i) for i in range(1, 6) ]
+    start_urls = ['{}{}/?q=Y2Zmcm9tPTUwMDAwJmkyPTExOCwzMSw1NywxMTU%3D'.format(base_url, i) for i in range(1, 2) ]
 
     def parse(self, response):
         
