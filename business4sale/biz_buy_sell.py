@@ -22,7 +22,7 @@ def test_get_filename_from_url():
 
 
 def save_object_to_file(object_, url):
-    today = datetime.now().isoformat()
+    today = datetime.now().isoformat().replace(":", ".")
     file_name = get_filename_from_url(url) + today
     file_path = os.path.join(DATA_FOLDER, file_name + '.json')
     json.dump(object_, open(file_path, 'w'))
@@ -46,7 +46,7 @@ def get_css(css_selector, block):
 
 
 def get_cashflow(block):
-    text = get_css('p.cash-flow.show-on-mobile.ng-star-inserted::text', block)
+    text = get_css('p.cash-flow::text', block)
     if isinstance(text, str):
         return text.replace("Cash Flow: ", "")
     else:
@@ -65,11 +65,17 @@ def get_cashflow(block):
 
 #base_url = 'https://www.bizbuysell.com/utah-established-businesses-for-sale/' #?q=Y2Zmcm9tPTUwMDAw
 base_url = 'https://www.bizbuysell.com/utah-established-businesses-for-sale/'
+
+search_ids = (
+    "Y2Zmcm9tPTUwMDAwJnNmaT1v" # Utah: Health&Fitness, Seller Financing only
+    "Y2Zmcm9tPTUwMDAwJmkyPTExOCwzMSw1NywxMTU%3D"  # Utah: Health&Wellness, Manufacturing, etc.
+    )
+
 class BizBuySellSpider(scrapy.Spider):
     name = "BizBuySell"
     allowed_domains = ['bizbuysell.com']
     
-    start_urls = ['{}{}/?q=Y2Zmcm9tPTUwMDAwJmkyPTExOCwzMSw1NywxMTU%3D'.format(base_url, i) for i in range(1, 2) ]
+    start_urls = ['{}{}/?q={}'.format(base_url, i, search_ids[0]) for i in range(1, 4) ]
 
     def parse(self, response):
         

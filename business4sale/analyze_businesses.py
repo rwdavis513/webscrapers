@@ -12,7 +12,8 @@ print(os.listdir(DATA_FOLDER))
 # %%
 def load_data(folder):
     items = []
-    for file in os.listdir(folder):
+    json_files = [file for file in os.listdir(folder) if file.endswith(".json")]
+    for file in json_files:
         item = json.load(open(os.path.join(folder, file), 'r'))
         items.extend(item)
     return items
@@ -50,6 +51,14 @@ def clean_str_to_int(number_string):
 # df = pd.DataFrame({'column_name': np.random.rand(100)})  # Example DataFrame
 # print(calculate_percentiles(df, 'column_name'))
 
+def save_csv_file(df, file_name="deals_"):
+    from datetime import datetime
+    today = datetime.now().isoformat().replace(":", ".")
+    output_folder = os.path.join(DATA_FOLDER, 'csvs')
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    df.to_csv(os.path.join(output_folder, file_name + today + ".csv"))
+
 
 # %%
 #businesses[0]
@@ -63,12 +72,11 @@ businesses_df = pd.DataFrame.from_records(businesses)
 
 businesses_df['asking_price_f'] = businesses_df['asking_price'].apply(clean_str_to_int )
 businesses_df['cashflow_f'] = businesses_df['cashflow'].apply(clean_str_to_int)
-
-# %%
 businesses_df['P/E'] = businesses_df['asking_price_f']/businesses_df['cashflow_f']
+percentiles = calculate_percentiles(businesses_df, 'P/E') 
+print(percentiles)
 
-# %%
-calculate_percentiles(businesses_df, 'P/E') 
+save_csv_file(businesses_df)
 
 # %%
 import plotly.express as px
@@ -78,19 +86,6 @@ fig.show()
 
 # %%
 # %%
-from datetime import datetime
-
-# %%
-today = datetime.now().isoformat()
-
-# %%
-output_folder = os.path.join(DATA_FOLDER, 'csvs')
-if not os.path.exists(output_folder):
-    os.makedirs(output_folder)
-
-# %%
-businesses_df.to_csv(os.path.join(output_folder, "businesses4sale_{}".format(today)))
-
 # %%
 
 
