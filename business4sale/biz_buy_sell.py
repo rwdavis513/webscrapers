@@ -63,19 +63,22 @@ def get_cashflow(block):
 
 #base_url = 'https://www.bizbuysell.com/utah-businesses-for-sale/'
 
-#base_url = 'https://www.bizbuysell.com/utah-established-businesses-for-sale/' #?q=Y2Zmcm9tPTUwMDAw
-base_url = 'https://www.bizbuysell.com/utah-established-businesses-for-sale/'
+#base_url = 'https://www.bizbuysell.com/utah-established-businesses-for-sale/'
+base_url = 'https://www.bizbuysell.com/utah/health-care-and-fitness-businesses-for-sale/'
 
 search_ids = (
     "Y2Zmcm9tPTUwMDAwJnNmaT1v" # Utah: Health&Fitness, Seller Financing only
     "Y2Zmcm9tPTUwMDAwJmkyPTExOCwzMSw1NywxMTU%3D"  # Utah: Health&Wellness, Manufacturing, etc.
+    "bHQ9MzAsNDAsODA%3D"
     )
+
+print(search_ids[-1])
 
 class BizBuySellSpider(scrapy.Spider):
     name = "BizBuySell"
     allowed_domains = ['bizbuysell.com']
     
-    start_urls = ['{}{}/?q={}'.format(base_url, i, search_ids[0]) for i in range(1, 4) ]
+    start_urls = ['{}{}/?q={}'.format(base_url, i, search_ids[-1]) for i in range(1, 4) ]
 
     def parse(self, response):
         

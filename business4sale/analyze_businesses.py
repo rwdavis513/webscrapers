@@ -82,7 +82,7 @@ save_csv_file(businesses_df)
 import plotly.express as px
 
 fig = px.histogram(businesses_df, x="P/E")
-fig.show()
+fig.save(os.path.join(DATA_FOLDER, 'pe_histogram.html'))
 
 # %%
 # %%
