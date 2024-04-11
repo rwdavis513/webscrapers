@@ -61,24 +61,29 @@ def get_cashflow(block):
 # 'image': block.css('div.ng-img-container > img::attr(src)').get(),
 # 'description': block.css('p.description.ng-star-inserted::text').get(), 
 
-#base_url = 'https://www.bizbuysell.com/utah-businesses-for-sale/'
+base_url = 'https://www.bizbuysell.com/'
 
-#base_url = 'https://www.bizbuysell.com/utah-established-businesses-for-sale/'
-base_url = 'https://www.bizbuysell.com/utah/health-care-and-fitness-businesses-for-sale/'
-
-search_ids = (
-    "Y2Zmcm9tPTUwMDAwJnNmaT1v" # Utah: Health&Fitness, Seller Financing only
-    "Y2Zmcm9tPTUwMDAwJmkyPTExOCwzMSw1NywxMTU%3D"  # Utah: Health&Wellness, Manufacturing, etc.
-    "bHQ9MzAsNDAsODA%3D"
+start_urls = (
+    'https://www.bizbuysell.com/utah-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJnNmaT1v', # Utah: Health&Fitness, Seller Financing only
+    'https://www.bizbuysell.com/utah-established-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJmkyPTExOCwzMSw1NywxMTU%3D', # Utah: Health&Wellness, Manufacturing, etc.
+    'https://www.bizbuysell.com/utah/health-care-and-fitness-businesses-for-sale/?q=bHQ9MzAsNDAsODA%3D', # Utah Health&Fitness
+    'https://www.bizbuysell.com/health-care-and-fitness-established-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJnNmaT1v' # Nationwide Health and Fitness
     )
-
-print(search_ids[-1])
+index = -1
+start_url = start_urls[index]
+print("Start URL: ", start_url)
+url_prefix = start_url.split("?")[0]
+search_term = start_url.split("?")[-1]
+max_pages = 8
+# Next Page Selector : 
+# <a _ngcontent-bbs-c110="" title="Page 2" href="/health-care-and-fitness-established-businesses-for-sale/2/?q=Y2Zmcm9tPTUwMDAwJnNmaT1v"> 2 </a>
+# <a _ngcontent-bbs-c110="" class="bbsPager_next ng-star-inserted">Next</a>
 
 class BizBuySellSpider(scrapy.Spider):
     name = "BizBuySell"
     allowed_domains = ['bizbuysell.com']
     
-    start_urls = ['{}{}/?q={}'.format(base_url, i, search_ids[-1]) for i in range(1, 4) ]
+    start_urls = ['{}{}/?q={}'.format(url_prefix, page_number, search_term) for page_number in range(1, max_pages) ]
 
     def parse(self, response):
         

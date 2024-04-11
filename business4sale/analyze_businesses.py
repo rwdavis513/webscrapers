@@ -36,7 +36,7 @@ def calculate_percentiles(df, column_name):
     dict: A dictionary containing the percentiles.
     """
     percentiles = [10, 25, 50, 75, 90]
-    percentile_values = np.percentile(df[column_name], percentiles)
+    percentile_values = np.percentile(df[column_name].dropna(), percentiles)
     
     percentile_dict = {f"{p}th percentile": value for p, value in zip(percentiles, percentile_values)}
     
@@ -82,7 +82,7 @@ save_csv_file(businesses_df)
 import plotly.express as px
 
 fig = px.histogram(businesses_df, x="P/E")
-fig.save(os.path.join(DATA_FOLDER, 'pe_histogram.html'))
+fig.write_image(os.path.join(DATA_FOLDER, 'pe_histogram.png'))
 
 # %%
 # %%
