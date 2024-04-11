@@ -1,9 +1,8 @@
 # %%
 import pandas as pd
 import json, os
-from constants import DATA_FOLDER
+from constants import DATA_FOLDER, DOMAIN_URL
 
-# %%
 
 # %%
 print("::Files found::")
@@ -73,6 +72,7 @@ businesses_df = pd.DataFrame.from_records(businesses)
 businesses_df['asking_price_f'] = businesses_df['asking_price'].apply(clean_str_to_int )
 businesses_df['cashflow_f'] = businesses_df['cashflow'].apply(clean_str_to_int)
 businesses_df['P/E'] = businesses_df['asking_price_f']/businesses_df['cashflow_f']
+businesses_df['url'] = businesses_df['link'].apply(lambda x: DOMAIN_URL + x)
 percentiles = calculate_percentiles(businesses_df, 'P/E') 
 print(percentiles)
 
