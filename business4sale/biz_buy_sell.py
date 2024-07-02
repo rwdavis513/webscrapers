@@ -63,13 +63,14 @@ def get_cashflow(block):
 
 base_url = 'https://www.bizbuysell.com/'
 
-start_urls = (
-    'https://www.bizbuysell.com/utah-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJnNmaT1v', # Utah: Health&Fitness, Seller Financing only
-    'https://www.bizbuysell.com/utah-established-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJmkyPTExOCwzMSw1NywxMTU%3D', # Utah: Health&Wellness, Manufacturing, etc.
-    'https://www.bizbuysell.com/utah/health-care-and-fitness-businesses-for-sale/?q=bHQ9MzAsNDAsODA%3D', # Utah Health&Fitness
-    'https://www.bizbuysell.com/health-care-and-fitness-established-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJnNmaT1v' # Nationwide Health and Fitness
-    )
-index = -1
+start_urls = [
+    #'https://www.bizbuysell.com/utah-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJnNmaT1v', # Utah: Health&Fitness, Seller Financing only
+    #'https://www.bizbuysell.com/utah-established-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJmkyPTExOCwzMSw1NywxMTU%3D', # Utah: Health&Wellness, Manufacturing, etc.
+    #'https://www.bizbuysell.com/utah/health-care-and-fitness-businesses-for-sale/?q=bHQ9MzAsNDAsODA%3D', # Utah Health&Fitness
+    #'https://www.bizbuysell.com/health-care-and-fitness-established-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJnNmaT1v', # Nationwide Health and Fitness
+    'https://www.bizbuysell.com/established-businesses-for-sale/?q=Y2Zmcm9tPTUwMDAwJms9Z3lt' # Gyms with >$50k cashflow
+    ]
+index = 0
 start_url = start_urls[index]
 print("Start URL: ", start_url)
 url_prefix = start_url.split("?")[0]
@@ -83,7 +84,7 @@ class BizBuySellSpider(scrapy.Spider):
     name = "BizBuySell"
     allowed_domains = ['bizbuysell.com']
     
-    start_urls = ['{}{}/?q={}'.format(url_prefix, page_number, search_term) for page_number in range(1, max_pages) ]
+    start_urls = ['{}{}/?{}'.format(url_prefix, page_number, search_term) for page_number in range(1, max_pages) ]
 
     def parse(self, response):
         
