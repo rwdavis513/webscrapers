@@ -37,12 +37,13 @@ def get_links_from_url(url):
     # Parse HTML content
     soup = BeautifulSoup(html_content, 'html.parser')
     
+    # TODO: Update this to pull the number of members from the group and the number of posts 
     # Find all <a> tags
     links = []
     for a_tag in soup.find_all('a'):
         link = {
             'url': a_tag.get('href', ''),
-            'title': a_tag.get_text(strip=True)
+            'title': a_tag.get_text(strip=True) 
         }
         # Only include links that have a URL
         if link['url']:
